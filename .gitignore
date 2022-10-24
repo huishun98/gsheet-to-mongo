@@ -3,3 +3,4 @@ keys.json
 archives/*.csv
 __pycache__/*
 .env
+mongosh/

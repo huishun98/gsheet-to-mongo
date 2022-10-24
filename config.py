@@ -3,7 +3,7 @@ from dotenv import load_dotenv
 
 load_dotenv()
 
-SHEETNAME = "chat data"  # "job data", "chat data", "user data", "whitelist"
+SHEETNAME = "job data"  # "job data", "chat data", "user data", "whitelist"
 MONGODB_DB = "rm_bot"
 
 GSHEET_ID = getenv("GSHEET_ID")  # can be found in the gsheet's url

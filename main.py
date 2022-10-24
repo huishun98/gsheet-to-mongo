@@ -3,6 +3,7 @@ import pygsheets
 import config
 from datetime import datetime
 import pandas as pd
+import certifi
 
 gc = pygsheets.authorize(service_file="keys.json")
 gsheet = gc.open_by_key(config.GSHEET_ID)
@@ -11,7 +12,7 @@ worksheet = gsheet.worksheet_by_title(config.SHEETNAME)
 filename = "%s_%s" % (config.SHEETNAME, datetime.today().strftime("%Y%m%d"))
 worksheet.export(path="archives", filename=filename)
 
-client = MongoClient(config.MONGODB_CONNECTION_STRING)
+client = MongoClient(config.MONGODB_CONNECTION_STRING, tlsCAFile=certifi.where())
 db = client[config.MONGODB_DB]
 collection = db[config.SHEETNAME.replace(" ", "_")]
 
